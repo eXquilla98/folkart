@@ -1,2 +1,5 @@
-package com.folkart.folkart.model;public class parents {
+package com.folkart.folkart.model;
+
+public class parents {
+
 }
