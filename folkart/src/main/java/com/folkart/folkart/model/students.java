@@ -15,6 +15,10 @@ public class students {
     private String nameIni;
     @Column(name = "email")
     private  String email;
+    public students(){
+        // Default constructor
+        // No-args constructor required by JPA - a huge error occurs without using this and try to get the jason respose for connecting mysql table lol
+    }
 
     public students(String fullName, String nameIni, String email) {
         this.fullName = fullName;
