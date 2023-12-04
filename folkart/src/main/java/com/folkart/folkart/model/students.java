@@ -1,6 +1,7 @@
 package com.folkart.folkart.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Parent;
 
 @Entity
 @Table(name = "students" )
@@ -15,15 +16,29 @@ public class students {
     private String nameIni;
     @Column(name = "email")
     private  String email;
+
+    @ManyToMany
+    @JoinColumn(name = "parent_id")
+
+    private Parent parent;
     public students(){
         // Default constructor
         // No-args constructor required by JPA - a huge error occurs without using this and try to get the jason respose for connecting mysql table lol
     }
 
-    public students(String fullName, String nameIni, String email) {
+    public students(String fullName, String nameIni, String email,Parent parent) {
         this.fullName = fullName;
         this.nameIni = nameIni;
         this.email = email;
+        this.parent=parent;
+    }
+
+    public Parent getParent() {
+        return parent;
+    }
+
+    public void setParent(Parent parent) {
+        this.parent = parent;
     }
 
     public long getId() {
@@ -65,6 +80,7 @@ public class students {
                 ", fullName='" + fullName + '\'' +
                 ", nameIni='" + nameIni + '\'' +
                 ", email='" + email + '\'' +
+                ", parent=" + parent +
                 '}';
     }
 }
