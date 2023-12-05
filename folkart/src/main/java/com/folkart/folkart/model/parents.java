@@ -3,7 +3,7 @@ package com.folkart.folkart.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="Parent")
+@Table(name="Parents")
 
 public class parents {
 @Id
