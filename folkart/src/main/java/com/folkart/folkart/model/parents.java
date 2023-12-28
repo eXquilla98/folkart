@@ -2,6 +2,11 @@ package com.folkart.folkart.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @Entity
 @Table(name="Parents")
 
@@ -14,10 +19,17 @@ private long id;
 private String parentName;
 @Column(name = "parentEmail")
 private String parentEmail;
+
 @Column(name = "parentPhoneNum")
 private String parentPhoneNum;
 @Column(name = "job")
 private String job;
+
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<students> students = new ArrayList<>();
+
+    public parents() {
+    }
 
     public parents(String parentName, String parentEmail, String parentPhoneNum, String job) {
         this.parentName = parentName;

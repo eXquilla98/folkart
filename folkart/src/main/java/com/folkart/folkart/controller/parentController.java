@@ -1,7 +1,7 @@
 package com.folkart.folkart.controller;
 
 import com.folkart.folkart.model.parents;
-import com.folkart.folkart.model.students;
+
 import com.folkart.folkart.repository.parentRepository;
 import com.folkart.folkart.repository.studentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +55,7 @@ public class parentController {
         }else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+
 
     }
 
